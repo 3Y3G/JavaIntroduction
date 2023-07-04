@@ -6,20 +6,33 @@ import java.util.Scanner;
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
+        boolean userLogin = false;
+        while (!userLogin){
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Enter username: ");
+            String name = scanner.nextLine();
+            System.out.println("Enter password: ");
+            String pass = scanner.nextLine();
 
+            if (name.equals("Ivan") && pass.equals("1234")){
+                System.out.println("Welcome, " + name);
+                userLogin = true;
+            }else{
+                System.out.println("Wrong credentials!");
+            }
+        }
+    }
+    static void dayOne(){
         //03.07.2023
-        /*Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         String name = scanner.nextLine();
         int age = scanner.nextInt();
 
         System.out.println("Name: " + name);
         System.out.println("Age: " + age);
-        System.out.println((char)21328);*/
-
-
-
-
+        System.out.println((char)21328);
     }
+
     static void homework1(){
         //HOMEWORK 03.07.2023
         Scanner in = new Scanner(System.in);
