@@ -4,8 +4,11 @@ import java.util.Scanner;
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
-public class Main {
+public class Zadachi {
     public static void main(String[] args) {
+
+    }
+    static void zadachaDve(){
         boolean userLogin = false;
         while (!userLogin){
             Scanner scanner = new Scanner(System.in);
