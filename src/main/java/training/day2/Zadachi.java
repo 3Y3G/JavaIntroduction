@@ -8,7 +8,35 @@ public class Zadachi {
     public static void main(String[] args) {
 
     }
-    static void zadachaDve(){
+    static void zadacha5(){
+        String[] days = new String[]{"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
+        for (String element : days) {
+            System.out.println(element + " ");
+        }
+    }
+    static void zadacha4(){
+        Scanner scanner = new Scanner(System.in);
+        int weight = scanner.nextInt();
+        if (weight > 50 && weight <= 70){
+            System.out.println("skinny");
+        }else if(weight > 70 && weight <= 90){
+            System.out.println("skinny fat");
+        }else if(weight > 90 && weight <= 110){
+            System.out.println("obese");
+        }else if (weight > 110){
+            System.out.println("extra obese");
+        }else{
+            System.out.println("Out of bounds");
+        }
+    }
+    static void zadacha3(){
+        Scanner scanner = new Scanner(System.in);
+        String word = scanner.nextLine();
+        for(int i = 0; i < word.length(); i++){
+            System.out.println(word.charAt(i));
+        }
+    }
+    static void zadacha2(){
         boolean userLogin = false;
         while (!userLogin){
             Scanner scanner = new Scanner(System.in);
