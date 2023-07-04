@@ -1,5 +1,8 @@
 package training.day2;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
@@ -7,14 +10,64 @@ import java.util.Scanner;
 public class Zadachi {
     public static void main(String[] args) {
 
+
+
+
+
+        int[] numb = {2,4,5,7};
+        System.out.println(Sum(numb));
     }
-    static void zadacha5(){
+    static int Sum(int[] numbs){
+        int sum = 0;
+        for (int element: numbs) {
+            sum = sum + element;
+        }
+        return sum;
+    }
+    static void Homework2Ex3(){
+        Scanner scanner = new Scanner(System.in);
+
+        List<String> wordsList = new ArrayList<>();
+        wordsList.add(scanner.nextLine());
+        wordsList.add(scanner.nextLine());
+        wordsList.add(scanner.nextLine());
+        wordsList.add(scanner.nextLine());
+        for (int i = 0; i < wordsList.size(); i++){
+            if (wordsList.get(i).toCharArray().length > 4){
+                wordsList.remove(i);
+            }
+        }
+        System.out.println(wordsList);
+    }
+    static void Homework2Ex1(){
+        Scanner scanner = new Scanner(System.in);
+        String[] words = new String[5];
+        System.out.println("Enter 5 words.");
+        for (int i = 0; i < 5; i++){
+            System.out.println("Enter a word: ");
+            words[i] = scanner.nextLine();
+        }
+        String temp;
+        for (int i = 0; i < words.length; i++){
+            for (int j = 0 ; j < words.length; j++){
+                if (words[i].charAt(0) == 'a') {
+                    temp = words[i];
+                    words[i] = words[j];
+                    words[j] = temp;
+                }
+            }
+        }
+        for (String name : words) {
+            System.out.println( name + " ");
+        }
+    }
+    static void ex5(){
         String[] days = new String[]{"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
         for (String element : days) {
             System.out.println(element + " ");
         }
     }
-    static void zadacha4(){
+    static void ex4(){
         Scanner scanner = new Scanner(System.in);
         int weight = scanner.nextInt();
         if (weight > 50 && weight <= 70){
@@ -29,14 +82,14 @@ public class Zadachi {
             System.out.println("Out of bounds");
         }
     }
-    static void zadacha3(){
+    static void ex3(){
         Scanner scanner = new Scanner(System.in);
         String word = scanner.nextLine();
         for(int i = 0; i < word.length(); i++){
             System.out.println(word.charAt(i));
         }
     }
-    static void zadacha2(){
+    static void ex2(){
         boolean userLogin = false;
         while (!userLogin){
             Scanner scanner = new Scanner(System.in);
@@ -53,7 +106,7 @@ public class Zadachi {
             }
         }
     }
-    static void dayOne(){
+    static void day1(){
         //03.07.2023
         Scanner scanner = new Scanner(System.in);
         String name = scanner.nextLine();
