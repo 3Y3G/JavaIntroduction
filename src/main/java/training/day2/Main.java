@@ -1,4 +1,4 @@
-package org.example;
+package training.day2;
 
 import java.util.Scanner;
 
@@ -16,8 +16,13 @@ public class Main {
         System.out.println("Age: " + age);
         System.out.println((char)21328);*/
 
+
+
+
+    }
+    static void homework1(){
         //HOMEWORK 03.07.2023
-        /*Scanner in = new Scanner(System.in);
+        Scanner in = new Scanner(System.in);
         String day;
         System.out.println("Enter value between 1 and 7: ");
         int a = in.nextInt();
@@ -40,8 +45,6 @@ public class Main {
                 break;
 
         }
-        System.out.println("The day is: " + day);*/
-
-
+        System.out.println("The day is: " + day);
     }
 }
