@@ -6,14 +6,17 @@ import java.util.Scanner;
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-        //Scanner scanner = new Scanner(System.in);
-        //String name = scanner.nextLine();
-        //int age = scanner.nextInt();
 
-        //System.out.println("Name: " + name);
-        //System.out.println("Age: " + age);
-        //System.out.println((char)21328);
-        Scanner in = new Scanner(System.in);
+        /*Scanner scanner = new Scanner(System.in);
+        String name = scanner.nextLine();
+        int age = scanner.nextInt();
+
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+        System.out.println((char)21328);*/
+
+        //HOMEWORK 03.07.2023
+        /*Scanner in = new Scanner(System.in);
         String day;
         System.out.println("Enter value between 1 and 7: ");
         int a = in.nextInt();
@@ -36,6 +39,8 @@ public class Main {
                 break;
 
         }
-        System.out.println("The day is: " + day);
+        System.out.println("The day is: " + day);*/
+
+
     }
 }
