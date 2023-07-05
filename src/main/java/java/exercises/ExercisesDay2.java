@@ -1,13 +1,9 @@
-package training.day2;
+package java.exercises;
 
 import java.util.Scanner;
 
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
-public class Exercises {
-    public static void main(String[] args) {
-    }
-
+public class ExercisesDay2 {
+    //04.07.2023
     static void ex5(){
         String[] days = new String[]{"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
         for (String element : days) {
@@ -53,16 +49,4 @@ public class Exercises {
             }
         }
     }
-    static void day1(){
-        //03.07.2023
-        Scanner scanner = new Scanner(System.in);
-        String name = scanner.nextLine();
-        int age = scanner.nextInt();
-
-        System.out.println("Name: " + name);
-        System.out.println("Age: " + age);
-        System.out.println((char)21328);
-    }
-
-
 }
