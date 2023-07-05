@@ -8,7 +8,7 @@ import java.util.Scanner;
 // then press Enter. You can now see whitespace characters in your code.
 public class Homework {
     public static void main(String[] args) {
-
+        homework2Ex3();
     }
     static void homework2Ex3(){
         Scanner scanner = new Scanner(System.in);
@@ -18,12 +18,13 @@ public class Homework {
         wordsList.add(scanner.nextLine());
         wordsList.add(scanner.nextLine());
         wordsList.add(scanner.nextLine());
+        List<String> newWords = new ArrayList<>();
         for (int i = 0; i < wordsList.size(); i++){
-            if (wordsList.get(i).toCharArray().length > 4){
-                wordsList.remove(i);
+            if (wordsList.get(i).toCharArray().length <= 4){
+                newWords.add(wordsList.get(i));
             }
         }
-        System.out.println(wordsList);
+        System.out.println(newWords);
     }
     static int homework2Ex2(int[] numbs){
         int sum = 0;
