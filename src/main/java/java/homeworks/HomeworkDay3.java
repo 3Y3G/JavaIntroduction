@@ -18,6 +18,7 @@ public class HomeworkDay3 {
         }
         System.out.println("Lowest number is: " + lowest);
     }
+
     static void homework3Ex2() {
         Scanner scanner = new Scanner(System.in);
         int number;
@@ -32,5 +33,4 @@ public class HomeworkDay3 {
             }
         }
     }
-
 }

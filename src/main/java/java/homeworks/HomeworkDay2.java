@@ -21,6 +21,7 @@ public class HomeworkDay2 {
         }
         System.out.println(newWords);
     }
+
     static int homework2Ex2(int[] numbs) {
         int sum = 0;
         for (int element: numbs) {
@@ -28,6 +29,7 @@ public class HomeworkDay2 {
         }
         return sum;
     }
+
     static void homework2Ex1() {
         Scanner scanner = new Scanner(System.in);
         String[] words = new String[5];
