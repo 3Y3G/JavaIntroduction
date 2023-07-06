@@ -38,13 +38,14 @@ public class Vehicle {
 
     private int horsePower;
     private void drive(double kilometers) {
-        if (kilometers/fuelConsumption > 10) {
-            System.out.println("Not enough fuel!");
+        double maxKilometers = (getFuel() / getFuelConsumption() * 100);
+        double fuelLeft = getFuel() - (kilometers * getFuelConsumption() /100);
+
+        if (maxKilometers < kilometers) {
+            System.out.println("You can drive max " + maxKilometers + " kilometers with " + getFuel() + " fuel.");
         }
         else {
-            System.out.println("driving...");
-            fuel = fuelConsumption*kilometers;
-            System.out.println(fuel + " fuel left.");
+            System.out.println("Ypu will have " + fuelLeft + " fuel left after you drive " + kilometers + " kilometers.");
         }
     }
 }
