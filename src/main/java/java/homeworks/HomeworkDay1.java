@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class HomeworkDay1 {
     //HOMEWORK 03.07.2023
-    static void homework1(){
+    static void homework1() {
 
         Scanner in = new Scanner(System.in);
         String day;

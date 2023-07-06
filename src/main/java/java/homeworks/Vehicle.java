@@ -37,10 +37,11 @@ public class Vehicle {
     }
 
     private int horsePower;
-    private void drive(double kilometers){
-        if (kilometers/fuelConsumption > 10){
+    private void drive(double kilometers) {
+        if (kilometers/fuelConsumption > 10) {
             System.out.println("Not enough fuel!");
-        }else {
+        }
+        else {
             System.out.println("driving...");
             fuel = fuelConsumption*kilometers;
             System.out.println(fuel + " fuel left.");
