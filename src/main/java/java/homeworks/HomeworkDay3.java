@@ -25,7 +25,7 @@ public class HomeworkDay3 {
         while (true) {
             System.out.println("Enter a number: ");
             number = scanner.nextInt();
-            if (number%2 == 0){
+            if (number%2 == 0) {
                 System.out.println("true");
             }
             else {
