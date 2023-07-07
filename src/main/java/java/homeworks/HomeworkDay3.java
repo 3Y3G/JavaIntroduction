@@ -12,7 +12,7 @@ public class HomeworkDay3 {
         numbs[2] = scanner.nextInt();
         int lowest = numbs[1];
         for (int i = 0; i < numbs.length; i++) {
-            if (numbs[i] < lowest){
+            if (numbs[i] < lowest) {
                 lowest = numbs[i];
             }
         }
