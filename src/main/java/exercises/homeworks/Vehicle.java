@@ -1,4 +1,4 @@
-package java.homeworks;
+package exercises.homeworks;
 
 public class Vehicle {
     private final static double DEFAULT_FUEL_CONSUMPTION = 1.25;
