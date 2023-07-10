@@ -1,6 +1,8 @@
-package training.day2;
+package exercises.exercises.day2;
 
-public class Singer extends Person{
+import exercises.exercises.Person;
+
+public class Singer extends Person {
     public boolean canPlayGuitar;
     public String bandName;
     public void sing(){

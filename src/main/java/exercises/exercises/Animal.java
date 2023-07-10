@@ -1,4 +1,4 @@
-package java.exercises;
+package exercises.exercises;
 
 public class Animal {
     public void eat(){

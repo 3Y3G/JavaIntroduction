@@ -1,4 +1,4 @@
-package training.day2;
+package exercises.exercises;
 
 public class Person extends Object{
     public String name;
