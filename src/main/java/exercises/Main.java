@@ -1,6 +1,7 @@
 package exercises;
 
 
+import exercises.exercises.Calculator;
 import exercises.shapes.Rectangle;
 import exercises.shapes.Triangle;
 
@@ -10,8 +11,13 @@ import java.util.Scanner;
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-        int a, b, c;
         Scanner scanner = new Scanner(System.in);
+
+        Calculator calc = new Calculator();
+        calc.calC(scanner.nextLine());
+        /*
+        int a, b, c;
+
         System.out.println("Enter side a of the rectangle: ");
         a = scanner.nextInt();
         System.out.println("Enter side b of the rectangle: ");
@@ -27,6 +33,6 @@ public class Main {
         c = scanner.nextInt();
         Triangle myTriangle = new Triangle(a,b,c);
         myTriangle.calculateArea();
-        myTriangle.calculatePerimeter();
+        myTriangle.calculatePerimeter();*/
     }
 }
