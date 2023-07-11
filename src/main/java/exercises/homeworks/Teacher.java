@@ -1,5 +1,6 @@
 package exercises.homeworks;
 
+
 public class Teacher extends Person{
     public String school;
 
@@ -12,5 +13,14 @@ public class Teacher extends Person{
         this.school = school;
         this.subjects = subjects;
         this.salary = salary;
+    }
+    private String info(){
+        String info = "Name: " + name + "; Gender: " + gender + "; Id: " + id + "; School: " + school + "; Subject: " + subjects + "; Salary: " + salary;
+        return info;
+    }
+
+    @Override
+    public String toString() {
+        return info();
     }
 }
