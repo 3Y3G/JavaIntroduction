@@ -1,6 +1,5 @@
 package exercises.homeworks;
 
-import java.util.Dictionary;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -10,11 +9,11 @@ import java.util.Map.Entry;
 public class Student extends Person{
 
 
-    private static int cnt = 0;
+    private static int count = 0;
     public String sClass;
 
     public int numberInClass;
-    public static HashMap<String, Integer> stun = new HashMap();
+    public static HashMap<String, Integer> stun = new HashMap<>();
 
 
     public static List<String> gradesForSubjects = new LinkedList<>();
@@ -24,11 +23,76 @@ public class Student extends Person{
         super(name, gender, id);
         this.sClass = sClass;
         this.numberInClass = numberInClass;
-        this.gradesForSubjects.add(gradesForSubjects);
-        stun.put(name, cnt);
-        cnt++;
+        Student.gradesForSubjects.add(gradesForSubjects);
+        stun.put(name, count);
+        count++;
     }
     //subGrades.add("Math 6;English 6;Bulgarian 4;STEM 6");
+
+    public void highGrade(String name) {
+        int who = Integer.parseInt(stun.get(name).toString());
+        String info = gradesForSubjects.get(who);
+
+        int[] grades = new int[4];
+        String[] subjectsTemp;
+
+        if (info.toLowerCase().contains("math")){
+            subjectsTemp = gradesForSubjects.get(who).split(";");
+            grades[0] = Integer.parseInt(subjectsTemp[0].substring(5));
+        }
+        if (info.toLowerCase().contains("english")){
+            subjectsTemp = gradesForSubjects.get(who).split(";");
+            grades[1] = Integer.parseInt(subjectsTemp[1].substring(8));
+        }
+        if (info.toLowerCase().contains("bulgarian")){
+            subjectsTemp = gradesForSubjects.get(who).split(";");
+            grades[2] = Integer.parseInt(subjectsTemp[2].substring(10));
+        }
+        if (info.toLowerCase().contains("stem")){
+            subjectsTemp = gradesForSubjects.get(who).split(";");
+            grades[3] = Integer.parseInt(subjectsTemp[3].substring(5));
+        }
+        int temp = grades[0];
+        int indexG = 0;
+        for (int gr : grades) {
+            if (temp < gr){
+                temp = gr;
+            }
+        }
+        indexG = findIndex(grades, temp);
+        String subject;
+        switch(indexG) {
+            case 0:
+                subject = "Math";
+                break;
+            case 1:
+                subject = "English";
+                break;
+            case 2:
+                subject = "Bulgarian";
+                break;
+            case 3:
+                subject = "STEM";
+                break;
+            default:
+                subject = "null";
+        }
+        System.out.println("The highest grade for " + name + " is " + temp + " in " + subject);
+
+
+
+
+        /*for(Entry<String, Integer> entry: stun.entrySet()) {
+
+            // if give value is equal to value from entry
+            // print the corresponding key
+            if(entry.getValue() == indexG) {
+                System.out.println("Highest grade in " + subject + " is: " + entry.getKey());
+                break;
+            }
+        }*/
+    }
+
 
     public void averageGrade(String student){
         int who = Integer.parseInt(stun.get(student).toString());
@@ -50,26 +114,27 @@ public class Student extends Person{
         System.out.println("The average grade of student " + student + " is: " + average);
 
     }
-    public void highestGrade(String subject){
-        int[] grades = new int[3];
+
+    public void highestGrade(String subject) {
+        int[] grades = new int[count];
         String[] subjectsTemp;
 
-        for (int i = 0; i < gradesForSubjects.size(); i++){
-            if (subject.toLowerCase().equals("math")){
+        for (int i = 0; i < gradesForSubjects.size(); i++) {
+            if (subject.equalsIgnoreCase("math")){
                 subjectsTemp = gradesForSubjects.get(i).split(";");
-                grades[i] = Integer.parseInt(subjectsTemp[0].substring(5).toString());
+                grades[i] = Integer.parseInt(subjectsTemp[0].substring(5));
             }
-            if (subject.toLowerCase().equals("english")){
+            if (subject.equalsIgnoreCase("english")) {
                 subjectsTemp = gradesForSubjects.get(i).split(";");
-                grades[i] = Integer.parseInt(subjectsTemp[1].substring(8).toString());
+                grades[i] = Integer.parseInt(subjectsTemp[1].substring(8));
             }
-            if (subject.toLowerCase().equals("bulgarian")){
+            if (subject.equalsIgnoreCase("bulgarian")) {
                 subjectsTemp = gradesForSubjects.get(i).split(";");
-                grades[i] = Integer.parseInt(subjectsTemp[2].substring(10).toString());
+                grades[i] = Integer.parseInt(subjectsTemp[2].substring(10));
             }
-            if (subject.toLowerCase().equals("stem")){
+            if (subject.equalsIgnoreCase("stem")) {
                 subjectsTemp = gradesForSubjects.get(i).split(";");
-                grades[i] = Integer.parseInt(subjectsTemp[3].substring(5).toString());
+                grades[i] = Integer.parseInt(subjectsTemp[3].substring(5));
             }
         }
 
@@ -80,14 +145,8 @@ public class Student extends Person{
                 temp = gr;
             }
         }
-
-
         indexG = findIndex(grades, temp);
-
         for(Entry<String, Integer> entry: stun.entrySet()) {
-
-            // if give value is equal to value from entry
-            // print the corresponding key
             if(entry.getValue() == indexG) {
                 System.out.println("Highest grade in " + subject + " is: " + entry.getKey());
                 break;
@@ -96,25 +155,25 @@ public class Student extends Person{
     }
 
     public void lowestGrade(String subject){
-        int[] grades = new int[3];
+        int[] grades = new int[count];
         String[] subjectsTemp;
 
         for (int i = 0; i<gradesForSubjects.size(); i++){
-            if (subject.toLowerCase().equals("math")){
+            if (subject.equalsIgnoreCase("math")){
                 subjectsTemp = gradesForSubjects.get(i).split(";");
-                grades[i] = Integer.parseInt(subjectsTemp[0].substring(5).toString());
+                grades[i] = Integer.parseInt(subjectsTemp[0].substring(5));
             }
-            if (subject.toLowerCase() == "english"){
+            if (subject.equalsIgnoreCase("english")){
                 subjectsTemp = gradesForSubjects.get(i).split(";");
-                grades[i] = Integer.parseInt(subjectsTemp[0].substring(8).toString());
+                grades[i] = Integer.parseInt(subjectsTemp[0].substring(8));
             }
-            if (subject.toLowerCase() == "bulgarian"){
+            if (subject.equalsIgnoreCase("bulgarian")){
                 subjectsTemp = gradesForSubjects.get(i).split(";");
-                grades[i] = Integer.parseInt(subjectsTemp[0].substring(10).toString());
+                grades[i] = Integer.parseInt(subjectsTemp[0].substring(10));
             }
-            if (subject.toLowerCase() == "stem"){
+            if (subject.equalsIgnoreCase("stem")){
                 subjectsTemp = gradesForSubjects.get(i).split(";");
-                grades[i] = Integer.parseInt(subjectsTemp[0].substring(5).toString());
+                grades[i] = Integer.parseInt(subjectsTemp[0].substring(5));
             }
         }
         int temp = grades[0];
@@ -129,9 +188,6 @@ public class Student extends Person{
         indexG = findIndex(grades, temp);
 
         for(Entry<String, Integer> entry: stun.entrySet()) {
-
-            // if give value is equal to value from entry
-            // print the corresponding key
             if(entry.getValue() == indexG) {
                 System.out.println("Lowest grade in " + subject + " is: " + entry.getKey());
                 break;
@@ -139,7 +195,7 @@ public class Student extends Person{
         }
 
     }
-    public static int findIndex(int arr[], int t)
+    public static int findIndex(int[] arr, int t)
     {
 
         if (arr == null) {
@@ -162,8 +218,7 @@ public class Student extends Person{
     }
     private String info(){
         int who = Integer.parseInt(stun.get(name).toString());
-        String info = "Name: " + name + "; Gender: " + gender + "; Id: " + id + "; Class: " + sClass + "; Number in class: " + numberInClass + "; Grades: " + gradesForSubjects.get(who);
-        return info;
+        return "Name: " + name + "; Gender: " + gender + "; Id: " + id + "; Class: " + sClass + "; Number in class: " + numberInClass + "; Grades: " + gradesForSubjects.get(who);
     }
 
     @Override
