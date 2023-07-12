@@ -14,6 +14,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         Calculator calc = new Calculator();
+        calc.result(scanner.nextLine());
         /*
         int a, b, c;
 
