@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 
 public class Calculator {
 
-    public static String inputRAW = "6+5+(5*5)+(4+4)";
+    public static String inputRAW = "6+5+(5*5)+(4+6)";
     public static String input(String in) {
         in = in.replaceAll(" ", "");
         in = in.replaceAll("minus", "-");
@@ -39,9 +39,9 @@ public class Calculator {
                 System.out.println("in = " + in);
 
             }
-            System.out.println("OUT OF IF IF");
+           // System.out.println("OUT OF IF IF");
         }else{
-            System.out.println("NOT IN IF");
+           // System.out.println("NOT IN IF");
         }
 
         //6+6+(5+5)+(4+4)
@@ -53,33 +53,55 @@ public class Calculator {
     }
 
     public static String result(String task) {
-        System.out.println();
+       // System.out.println();
         String a = input(task);
-        System.out.println(a);
+      //  System.out.println(a);
         List<String> operands = Arrays.asList(a.split("[+-]"));
-        System.out.println("operands = " + operands);
+       // System.out.println("operands = " + operands);
         String rawValue = operands.get(0) + " ";
         for (int i = 1; i < operands.size(); i++){
             rawValue += operands.get(i) + " ";
         }
-        for (String value: operands
-             ) {
-            System.out.println("operands value = " + value);
-            System.out.println(a.substring(0, a.indexOf(value)));
-            System.out.println("a before replace = " + a);
-            a = a.substring(0, a.indexOf(value) +1).replaceAll(value, " ");
-            System.out.println("a cycle = " + a);
-            if (value == operands.get(0)){
+        if (operands.contains("/") || operands.contains("/")){
+            for (String value: operands
+            ) {
 
-            }else{
+                //System.out.println("operands value = " + value);
+               // System.out.println(a.substring(0, a.indexOf(value)));
+               // System.out.println("a before replace = " + a);
+                a = a.substring(0, a.indexOf(value) +1).replaceAll(value, " ");
+              //  System.out.println("a cycle = " + a);
+                if (value == operands.get(0)){
+
+                }else{
+
+                }
+
 
             }
-
-
         }
-        System.out.println("a = " +a);
-        System.out.println("rawvalue = " + rawValue);
 
+        //System.out.println("a = " +a);
+        //System.out.println("rawvalue = " + rawValue);
+
+        List<String> ops = Arrays.asList(rawValue.split(" "));
+        String opTemp = "";
+        for (int i = 0; i < ops.size();i++){
+            System.out.println("operands value123123 = " + ops.get(i));
+            System.out.println("a + " + a);
+            System.out.println(a.substring(0, a.indexOf(ops.get(i)) +1));
+            a = a.replaceAll(a.substring(0, a.indexOf(ops.get(i)) +1), "" );
+            System.out.println("asdasd +" + a);
+            //System.out.println(a.substring(0, a.indexOf(value)));
+            //System.out.println("a before replace = " + a);
+            //a = a.substring(0, a.indexOf(value) +1).replaceAll(value, " ");
+            //System.out.println("a cycle = " + a);
+            //if (value == operands.get(0)){
+
+           // }else{
+
+          //  }
+        }
         String[] operators = a.replaceAll("/", "")
                 .replaceAll("\\*", "")
                 .split(" ");
@@ -125,6 +147,10 @@ public class Calculator {
                 agregate -= Double.parseDouble(operands.get(i));
             }
         }
+        System.out.println();
+        System.out.println(operands);
+        System.out.println(Arrays.toString(operators));
+
         System.out.println(agregate);
         return String.valueOf(agregate);
     }
