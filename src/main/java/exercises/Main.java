@@ -12,27 +12,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-
         Calculator calc = new Calculator();
         calc.result(scanner.nextLine());
-        /*
-        int a, b, c;
-
-        System.out.println("Enter side a of the rectangle: ");
-        a = scanner.nextInt();
-        System.out.println("Enter side b of the rectangle: ");
-        b = scanner.nextInt();
-        Rectangle myRectangle = new Rectangle(a, b);
-        myRectangle.calculateArea();
-        myRectangle.calculatePerimeter();
-        System.out.println("Enter side a of the triangle: ");
-        a = scanner.nextInt();
-        System.out.println("Enter side b of the triangle: ");
-        b = scanner.nextInt();
-        System.out.println("Enter side c of the triangle: ");
-        c = scanner.nextInt();
-        Triangle myTriangle = new Triangle(a,b,c);
-        myTriangle.calculateArea();
-        myTriangle.calculatePerimeter();*/
     }
 }
