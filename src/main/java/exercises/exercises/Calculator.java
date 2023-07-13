@@ -16,8 +16,6 @@ public class Calculator {
     public void result(String task) {
         String a = input(task);
         System.out.println(a);
-
-
         String[] operators = a.replaceAll("/", "")
                 .replaceAll("\\*", "")
                 .split("[0-9]+");
