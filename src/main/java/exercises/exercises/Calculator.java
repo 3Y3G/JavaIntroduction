@@ -3,23 +3,90 @@ package exercises.exercises;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Calculator {
 
+    public static String inputRAW = "6+5+(5*5)+(4+4)";
     public static String input(String in) {
         in = in.replaceAll(" ", "");
         in = in.replaceAll("minus", "-");
         in = in.replaceAll("plus", "+");
+        if (in.contains("(") && in.contains(")")){
+            System.out.println("IN IF");
+
+            String test = in;
+            Pattern p = Pattern.compile("\\((.*?)\\)");
+            Matcher m = p.matcher(test);
+            List<String> tasks = new ArrayList<>();
+            while(m.find()) {
+                tasks.add(m.group(1));
+            }
+
+            System.out.println("tasks = " + tasks);
+
+            for (String value: tasks) {
+                String in1 = in;
+                String temp, temp1, temp2;
+                System.out.println("value = " + value);
+                temp1 = in1.substring(in1.indexOf("("), in1.indexOf(")") + 1);
+                System.out.println("temp1 = " + temp1);
+                temp = in1.substring(in1.indexOf("(")+1, in1.indexOf(")"));
+                temp2 = in1.substring(in1.indexOf(")")+1);
+                System.out.println("temp2 = " + temp2);
+                in = in1.substring(0, in1.indexOf(temp1)) + result(value) + temp2;
+                System.out.println("in = " + in);
+
+            }
+            System.out.println("OUT OF IF IF");
+        }else{
+            System.out.println("NOT IN IF");
+        }
+
+        //6+6+(5+5)+(4+4)
+        //6+6+[5+5]+[4+4]
+
+
+
         return in;
     }
 
-    public void result(String task) {
+    public static String result(String task) {
+        System.out.println();
         String a = input(task);
         System.out.println(a);
+        List<String> operands = Arrays.asList(a.split("[+-]"));
+        System.out.println("operands = " + operands);
+        String rawValue = operands.get(0) + " ";
+        for (int i = 1; i < operands.size(); i++){
+            rawValue += operands.get(i) + " ";
+        }
+        for (String value: operands
+             ) {
+            System.out.println("operands value = " + value);
+            System.out.println(a.substring(0, a.indexOf(value)));
+            System.out.println("a before replace = " + a);
+            a = a.substring(0, a.indexOf(value) +1).replaceAll(value, " ");
+            System.out.println("a cycle = " + a);
+            if (value == operands.get(0)){
+
+            }else{
+
+            }
+
+
+        }
+        System.out.println("a = " +a);
+        System.out.println("rawvalue = " + rawValue);
+
         String[] operators = a.replaceAll("/", "")
                 .replaceAll("\\*", "")
-                .split("[0-9]+");
-        List<String> operands = Arrays.asList(a.split("[+-]"));
+                .split(" ");
+        for (String value : operators
+             ) {
+            System.out.println("value = " + value);
+        }
         List<String> operandsTemp = new ArrayList<>();
         for (String op : operands) {
             if (op.contains("/") || op.contains("*")) {
@@ -50,12 +117,15 @@ public class Calculator {
         }
         double agregate = Double.parseDouble(operands.get(0));
         for (int i = 0; i < operators.length; i++) {
+            System.out.println("operators[i]"+operators[i]);
             if (operators[i].equals("+")) {
+                System.out.println(" SUBIRA");
                 agregate += Double.parseDouble(operands.get(i));
             } else if (operators[i].equals("-")) {
                 agregate -= Double.parseDouble(operands.get(i));
             }
         }
         System.out.println(agregate);
+        return String.valueOf(agregate);
     }
 }
