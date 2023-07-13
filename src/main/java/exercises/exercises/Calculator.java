@@ -7,10 +7,15 @@ import java.util.Scanner;
 
 public class Calculator {
 
-    public static Scanner cin = new Scanner(System.in);
+    public static String input(String in){
+        in = in.replaceAll(" ","");
+        in = in.replaceAll("minus","-");
+        in = in.replaceAll("plus","+");
+        return in;
+    }
 
     public double result(String task){
-        String a = "1*9/2-320+12343*1232";
+        String a = input(task);
         System.out.println(a);
 
 
