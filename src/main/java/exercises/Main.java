@@ -53,11 +53,11 @@ public class Main {
         teacherArrayList.add(teacher5);
         teacherArrayList.add(teacher6);
 
-        for (int i = 0; i < studentArrayList.size(); i++){
-            studentTeacher.add(studentArrayList.get(i).toString());
+        for (Student value : studentArrayList) {
+            studentTeacher.add(value.toString());
         }
-        for (int i = 0; i < teacherArrayList.size(); i++){
-            studentTeacher.add(teacherArrayList.get(i).toString());
+        for (Teacher value : teacherArrayList) {
+            studentTeacher.add(value.toString());
         }
 
         for (int i = 0; i < studentTeacher.size(); i++){
@@ -79,7 +79,7 @@ public class Main {
         student.averageGrade("Ananas");
         //class average
         student.highGrade("Momchil");
-
+        //
 
         /*int a, b, c;
         Scanner scanner = new Scanner(System.in);
