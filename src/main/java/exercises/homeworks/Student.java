@@ -6,15 +6,15 @@ import java.util.List;
 import java.util.Map.Entry;
 
 
-public class Student extends Person{
+public class Student extends Person {
 
-
+    private static double avgGrd = 0d;
     private static int count = 0;
     public String sClass;
 
     public int numberInClass;
     public static HashMap<String, Integer> stun = new HashMap<>();
-
+    public static HashMap<String, String> hashClass = new HashMap<>();
 
     public static List<String> gradesForSubjects = new LinkedList<>();
 
@@ -25,6 +25,7 @@ public class Student extends Person{
         this.numberInClass = numberInClass;
         Student.gradesForSubjects.add(gradesForSubjects);
         stun.put(name, count);
+        hashClass.put(sClass, name);
         count++;
     }
     //subGrades.add("Math 6;English 6;Bulgarian 4;STEM 6");
@@ -36,32 +37,32 @@ public class Student extends Person{
         int[] grades = new int[4];
         String[] subjectsTemp;
 
-        if (info.toLowerCase().contains("math")){
+        if (info.toLowerCase().contains("math")) {
             subjectsTemp = gradesForSubjects.get(who).split(";");
             grades[0] = Integer.parseInt(subjectsTemp[0].substring(5));
         }
-        if (info.toLowerCase().contains("english")){
+        if (info.toLowerCase().contains("english")) {
             subjectsTemp = gradesForSubjects.get(who).split(";");
             grades[1] = Integer.parseInt(subjectsTemp[1].substring(8));
         }
-        if (info.toLowerCase().contains("bulgarian")){
+        if (info.toLowerCase().contains("bulgarian")) {
             subjectsTemp = gradesForSubjects.get(who).split(";");
             grades[2] = Integer.parseInt(subjectsTemp[2].substring(10));
         }
-        if (info.toLowerCase().contains("stem")){
+        if (info.toLowerCase().contains("stem")) {
             subjectsTemp = gradesForSubjects.get(who).split(";");
             grades[3] = Integer.parseInt(subjectsTemp[3].substring(5));
         }
         int temp = grades[0];
         int indexG = 0;
         for (int gr : grades) {
-            if (temp < gr){
+            if (temp < gr) {
                 temp = gr;
             }
         }
         indexG = findIndex(grades, temp);
         String subject;
-        switch(indexG) {
+        switch (indexG) {
             case 0:
                 subject = "Math";
                 break;
@@ -93,12 +94,15 @@ public class Student extends Person{
         }*/
     }
 
+    public void classAverage(String sclass) {
+        System.out.println("Average grade in class " + sclass + " is " + averageGrade(hashClass.get(sclass)));
+    }
 
-    public void averageGrade(String student){
+    public double averageGrade(String student) {
         int who = Integer.parseInt(stun.get(student).toString());
         int[] grades = new int[4];
         String[] subjectsTemp;
-        for (int i = 0; i < gradesForSubjects.size(); i++){
+        for (int i = 0; i < gradesForSubjects.size(); i++) {
             subjectsTemp = gradesForSubjects.get(who).split(";");
             grades[0] = Integer.parseInt(subjectsTemp[0].substring(5));
             grades[1] = Integer.parseInt(subjectsTemp[1].substring(8));
@@ -110,17 +114,16 @@ public class Student extends Person{
         for (int gr : grades) {
             average = average + gr;
         }
-        average = average/4;
-        System.out.println("The average grade of student " + student + " is: " + average);
-
+        average = average / 4;
+        return average;
     }
 
-    public void highestGrade(String subject) {
+    public static int[] SeperateGrades(String subject) {
         int[] grades = new int[count];
         String[] subjectsTemp;
 
         for (int i = 0; i < gradesForSubjects.size(); i++) {
-            if (subject.equalsIgnoreCase("math")){
+            if (subject.equalsIgnoreCase("math")) {
                 subjectsTemp = gradesForSubjects.get(i).split(";");
                 grades[i] = Integer.parseInt(subjectsTemp[0].substring(5));
             }
@@ -137,41 +140,63 @@ public class Student extends Person{
                 grades[i] = Integer.parseInt(subjectsTemp[3].substring(5));
             }
         }
+        return grades;
+    }
 
+    public void highestGrade(String subject) {
+        int[] grades = new int[count];
+        String[] subjectsTemp;
+        for (int i = 0; i < gradesForSubjects.size(); i++) {
+            if (subject.equalsIgnoreCase("math")) {
+                subjectsTemp = gradesForSubjects.get(i).split(";");
+                grades[i] = Integer.parseInt(subjectsTemp[0].substring(5));
+            }
+            if (subject.equalsIgnoreCase("english")) {
+                subjectsTemp = gradesForSubjects.get(i).split(";");
+                grades[i] = Integer.parseInt(subjectsTemp[1].substring(8));
+            }
+            if (subject.equalsIgnoreCase("bulgarian")) {
+                subjectsTemp = gradesForSubjects.get(i).split(";");
+                grades[i] = Integer.parseInt(subjectsTemp[2].substring(10));
+            }
+            if (subject.equalsIgnoreCase("stem")) {
+                subjectsTemp = gradesForSubjects.get(i).split(";");
+                grades[i] = Integer.parseInt(subjectsTemp[3].substring(5));
+            }
+        }
         int temp = grades[0];
         int indexG = 0;
         for (int gr : grades) {
-            if (temp < gr){
+            if (temp < gr) {
                 temp = gr;
             }
         }
         indexG = findIndex(grades, temp);
-        for(Entry<String, Integer> entry: stun.entrySet()) {
-            if(entry.getValue() == indexG) {
+        for (Entry<String, Integer> entry : stun.entrySet()) {
+            if (entry.getValue() == indexG) {
                 System.out.println("Highest grade in " + subject + " is: " + entry.getKey());
                 break;
             }
         }
     }
 
-    public void lowestGrade(String subject){
+    public void lowestGrade(String subject) {
         int[] grades = new int[count];
         String[] subjectsTemp;
-
-        for (int i = 0; i<gradesForSubjects.size(); i++){
-            if (subject.equalsIgnoreCase("math")){
+        for (int i = 0; i < gradesForSubjects.size(); i++) {
+            if (subject.equalsIgnoreCase("math")) {
                 subjectsTemp = gradesForSubjects.get(i).split(";");
                 grades[i] = Integer.parseInt(subjectsTemp[0].substring(5));
             }
-            if (subject.equalsIgnoreCase("english")){
+            if (subject.equalsIgnoreCase("english")) {
                 subjectsTemp = gradesForSubjects.get(i).split(";");
                 grades[i] = Integer.parseInt(subjectsTemp[0].substring(8));
             }
-            if (subject.equalsIgnoreCase("bulgarian")){
+            if (subject.equalsIgnoreCase("bulgarian")) {
                 subjectsTemp = gradesForSubjects.get(i).split(";");
                 grades[i] = Integer.parseInt(subjectsTemp[0].substring(10));
             }
-            if (subject.equalsIgnoreCase("stem")){
+            if (subject.equalsIgnoreCase("stem")) {
                 subjectsTemp = gradesForSubjects.get(i).split(";");
                 grades[i] = Integer.parseInt(subjectsTemp[0].substring(5));
             }
@@ -179,7 +204,7 @@ public class Student extends Person{
         int temp = grades[0];
         int indexG = 0;
         for (int gr : grades) {
-            if (temp > gr){
+            if (temp > gr) {
                 temp = gr;
             }
         }
@@ -187,36 +212,31 @@ public class Student extends Person{
 
         indexG = findIndex(grades, temp);
 
-        for(Entry<String, Integer> entry: stun.entrySet()) {
-            if(entry.getValue() == indexG) {
+        for (Entry<String, Integer> entry : stun.entrySet()) {
+            if (entry.getValue() == indexG) {
                 System.out.println("Lowest grade in " + subject + " is: " + entry.getKey());
                 break;
             }
         }
-
     }
-    public static int findIndex(int[] arr, int t)
-    {
 
+    public static int findIndex(int[] arr, int t) {
         if (arr == null) {
             return -1;
         }
-
         int len = arr.length;
         int i = 0;
-
         while (i < len) {
-
             if (arr[i] == t) {
                 return i;
-            }
-            else {
+            } else {
                 i = i + 1;
             }
         }
         return -1;
     }
-    private String info(){
+
+    private String info() {
         int who = Integer.parseInt(stun.get(name).toString());
         return "Name: " + name + "; Gender: " + gender + "; Id: " + id + "; Class: " + sClass + "; Number in class: " + numberInClass + "; Grades: " + gradesForSubjects.get(who);
     }

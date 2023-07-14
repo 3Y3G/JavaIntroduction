@@ -18,12 +18,12 @@ public class Main {
         ArrayList<String> studentTeacher = new ArrayList<>();
 
         List<String> subGrades = new ArrayList<>();
-        subGrades.add("Math 2;English 6;Bulgarian 3;STEM 4");
-        subGrades.add("Math 5;English 3;Bulgarian 6;STEM 2");
-        subGrades.add("Math 6;English 4;Bulgarian 5;STEM 3");
-        subGrades.add("Math 3;English 2;Bulgarian 6;STEM 5");
-        subGrades.add("Math 5;English 5;Bulgarian 4;STEM 6");
-        subGrades.add("Math 4;English 4;Bulgarian 2;STEM 3");
+        subGrades.add("Math 2;English 3;Bulgarian 5;STEM 6");
+        subGrades.add("Math 3;English 3;Bulgarian 4;STEM 6");
+        subGrades.add("Math 4;English 6;Bulgarian 5;STEM 4");
+        subGrades.add("Math 3;English 2;Bulgarian 6;STEM 4");
+        subGrades.add("Math 2;English 2;Bulgarian 6;STEM 4");
+        subGrades.add("Math 5;English 2;Bulgarian 6;STEM 3");
 
 
         Student student = new Student("Pesho", "male", 1, "a", 5, subGrades.get(0));
@@ -37,8 +37,6 @@ public class Main {
         Teacher teacher2 = new Teacher("Denka", "female", 24, "Kiril I Metodii", "English", 5000);
         Teacher teacher3 = new Teacher("Kris", "male", 34, "Dimitar Talev", "STEM", 1600);
         Teacher teacher4 = new Teacher("Dragana", "female", 23, "Dimitar Talev", "Bulgarian", 1800);
-        Teacher teacher5 = new Teacher("Petkana", "female", 13, "Kiril I Metodii", "MATH", 3400);
-        Teacher teacher6 = new Teacher("Ivana", "female", 18, "Dimitar Talev", "STEM", 2300);
 
         studentArrayList.add(student);
         studentArrayList.add(student2);
@@ -50,8 +48,6 @@ public class Main {
         teacherArrayList.add(teacher2);
         teacherArrayList.add(teacher3);
         teacherArrayList.add(teacher4);
-        teacherArrayList.add(teacher5);
-        teacherArrayList.add(teacher6);
 
         for (Student value : studentArrayList) {
             studentTeacher.add(value.toString());
@@ -60,11 +56,11 @@ public class Main {
             studentTeacher.add(value.toString());
         }
 
-        for (int i = 0; i < studentTeacher.size(); i++){
-            if (i == 0){
+        for (int i = 0; i < studentTeacher.size(); i++) {
+            if (i == 0) {
                 System.out.println("Students: ");
             }
-            if (i == studentArrayList.size()){
+            if (i == studentArrayList.size()) {
                 System.out.println("Teachers: ");
             }
             System.out.println(studentTeacher.get(i));
@@ -76,10 +72,10 @@ public class Main {
         student.highestGrade("STEM");
         student.lowestGrade("Math");
         teacher.aSalary();
-        student.averageGrade("Ananas");
-        //class average
+        System.out.println("The average grade of student Ananas is: " + student.averageGrade("Ananas"));
+        student.classAverage("b");
         student.highGrade("Momchil");
-        //
+        teacher.calcHighestGrade();
 
         /*int a, b, c;
         Scanner scanner = new Scanner(System.in);
