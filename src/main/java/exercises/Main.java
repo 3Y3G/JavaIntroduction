@@ -3,8 +3,6 @@ package exercises;
 
 import exercises.homeworks.Student;
 import exercises.homeworks.Teacher;
-import exercises.shapes.Rectangle;
-import exercises.shapes.Triangle;
 
 import java.util.*;
 
@@ -16,15 +14,14 @@ public class Main {
         ArrayList<Student> studentArrayList = new ArrayList<>();
         ArrayList<Teacher> teacherArrayList = new ArrayList<>();
         ArrayList<String> studentTeacher = new ArrayList<>();
-
         List<String> subGrades = new ArrayList<>();
+
         subGrades.add("Math 2;English 3;Bulgarian 5;STEM 6");
         subGrades.add("Math 3;English 3;Bulgarian 4;STEM 6");
         subGrades.add("Math 4;English 6;Bulgarian 5;STEM 4");
         subGrades.add("Math 3;English 2;Bulgarian 6;STEM 4");
         subGrades.add("Math 2;English 2;Bulgarian 6;STEM 4");
         subGrades.add("Math 5;English 2;Bulgarian 6;STEM 3");
-
 
         Student student = new Student("Pesho", "male", 1, "a", 5, subGrades.get(0));
         Student student2 = new Student("Viktoriq", "female", 5, "b", 6, subGrades.get(1));
@@ -73,27 +70,9 @@ public class Main {
         student.lowestGrade("Math");
         teacher.aSalary();
         System.out.println("The average grade of student Ananas is: " + student.averageGrade("Ananas"));
-        student.classAverage("b");
-        student.highGrade("Momchil");
+        student.calculateClassAverage("b");
+        student.getHighestGradeForStudent("Momchil");
         teacher.calcHighestGrade();
 
-        /*int a, b, c;
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter side a of the rectangle: ");
-        a = scanner.nextInt();
-        System.out.println("Enter side b of the rectangle: ");
-        b = scanner.nextInt();
-        Rectangle myRectangle = new Rectangle(a, b);
-        myRectangle.calculateArea();
-        myRectangle.calculatePerimeter();
-        System.out.println("Enter side a of the triangle: ");
-        a = scanner.nextInt();
-        System.out.println("Enter side b of the triangle: ");
-        b = scanner.nextInt();
-        System.out.println("Enter side c of the triangle: ");
-        c = scanner.nextInt();
-        Triangle myTriangle = new Triangle(a,b,c);
-        myTriangle.calculateArea();
-        myTriangle.calculatePerimeter(); */
     }
 }

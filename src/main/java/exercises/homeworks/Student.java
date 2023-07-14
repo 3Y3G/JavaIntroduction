@@ -19,7 +19,6 @@ public class Student extends Person {
     public static List<String> gradesForSubjects = new LinkedList<>();
 
     public Student(String name, String gender, int id, String sClass, int numberInClass, String gradesForSubjects) {
-
         super(name, gender, id);
         this.sClass = sClass;
         this.numberInClass = numberInClass;
@@ -28,15 +27,12 @@ public class Student extends Person {
         hashClass.put(sClass, name);
         count++;
     }
-    //subGrades.add("Math 6;English 6;Bulgarian 4;STEM 6");
 
-    public void highGrade(String name) {
+    public void getHighestGradeForStudent(String name) {
         int who = Integer.parseInt(stun.get(name).toString());
         String info = gradesForSubjects.get(who);
-
         int[] grades = new int[4];
         String[] subjectsTemp;
-
         if (info.toLowerCase().contains("math")) {
             subjectsTemp = gradesForSubjects.get(who).split(";");
             grades[0] = Integer.parseInt(subjectsTemp[0].substring(5));
@@ -79,22 +75,9 @@ public class Student extends Person {
                 subject = "null";
         }
         System.out.println("The highest grade for " + name + " is " + temp + " in " + subject);
-
-
-
-
-        /*for(Entry<String, Integer> entry: stun.entrySet()) {
-
-            // if give value is equal to value from entry
-            // print the corresponding key
-            if(entry.getValue() == indexG) {
-                System.out.println("Highest grade in " + subject + " is: " + entry.getKey());
-                break;
-            }
-        }*/
     }
 
-    public void classAverage(String sclass) {
+    public void calculateClassAverage(String sclass) {
         System.out.println("Average grade in class " + sclass + " is " + averageGrade(hashClass.get(sclass)));
     }
 
@@ -121,7 +104,6 @@ public class Student extends Person {
     public static int[] SeperateGrades(String subject) {
         int[] grades = new int[count];
         String[] subjectsTemp;
-
         for (int i = 0; i < gradesForSubjects.size(); i++) {
             if (subject.equalsIgnoreCase("math")) {
                 subjectsTemp = gradesForSubjects.get(i).split(";");
